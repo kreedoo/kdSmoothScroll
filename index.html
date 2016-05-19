@@ -12,16 +12,16 @@
 <body>
 <div class="page">
     <div class="menu">
-        <a href="#section1" kd-app="smoothScroll">Link 1</a>
-        <a href="#section2" kd-app="smoothScroll">Link 2</a>
-        <a href="#section3" kd-app="smoothScroll">Link 3</a>
-        <a href="#section4" kd-app="smoothScroll">Link 4</a>
-        <a href="#section5" kd-app="smoothScroll">Link 5</a>
-        <a href="#section6" kd-app="smoothScroll">Link 6</a>
-        <a href="#section7" kd-app="smoothScroll">Link 7</a>
-        <a href="#section8" kd-app="smoothScroll">Link 8</a>
-        <a href="#section9" kd-app="smoothScroll">Link 9</a>
-        <a href="#section0" kd-app="smoothScroll">Link 0</a>
+        <a href="#section1" kd-app="kdSmoothScroll">Link 1</a>
+        <a href="#section2" kd-app="kdSmoothScroll">Link 2</a>
+        <a href="#section3" kd-app="kdSmoothScroll">Link 3</a>
+        <a href="#section4" kd-app="kdSmoothScroll">Link 4</a>
+        <a href="#section5" kd-app="kdSmoothScroll">Link 5</a>
+        <a href="#section6" kd-app="kdSmoothScroll">Link 6</a>
+        <a href="#section7" kd-app="kdSmoothScroll">Link 7</a>
+        <a href="#section8" kd-app="kdSmoothScroll">Link 8</a>
+        <a href="#section9" kd-app="kdSmoothScroll">Link 9</a>
+        <a href="#section0" kd-app="kdSmoothScroll">Link 0</a>
     </div>
     <section class="section" id="section1">section 1
         <div style="margin: 60px;">
@@ -48,5 +48,12 @@
 <script src="jquery-1.11.0.min.js"></script>
 <script src="common.js"></script>
 <script src="jquery.kdSmoothScroll.js"></script>
+<script>
+$(function(){
+    $('[kd-app="kdSmoothScroll"]').kdSmoothScroll({
+        root: '.page'
+    });
+});
+</script>
 </body>
 </html>

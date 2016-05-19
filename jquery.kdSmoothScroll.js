@@ -14,6 +14,12 @@
 
             this._setOptions(options);
 
+            if(this.options.root === false){
+                this.root = $('html');
+            }else{
+                this.root = this.dest.closest(this.options.root);
+            }
+
             this.uniqueID = uniqueIDs.smoothScroll++;
             this.prefixed = 'smoothScroll' + this.uniqueID;
             this.eventNamespace = '.' + this.prefixed;
@@ -53,7 +59,7 @@
             }(this.element)));
         },
         _triggerFunction: function(){
-            var self = this, destElement, root, position, destinationPosition;
+            var self = this, position, destinationPosition;
 
             this.element
                 .off('click' + this.eventNamespace)
@@ -62,19 +68,9 @@
 
                     if(isScrolling) return false;
 
-                    destElement = $($(this).attr('href'));
+                    destinationPosition = self.dest.offsetOfElement(self.options.root).top;
 
-                    if(destElement.length === 0) return false;
-
-                    if(self.options.root === false){
-                        root = $('html');
-                    }else{
-                        root = destElement.closest(self.options.root);
-                    }
-
-                    destinationPosition = destElement.offsetOfElement(self.options.root).top;
-
-                    position = self.options.scrollBefore.apply(self, [root, destElement, destinationPosition]);
+                    position = self.options.scrollBefore.apply(self, [self.root, self.dest, destinationPosition]);
                     if(position === false){
                         return false;
                     }else{
@@ -83,23 +79,17 @@
 
                     isScrolling = true;
 
-                    root.animate({
-                        scrollTop: destinationPosition
-                    }, self.options.speed, self.options.easing, function(){
-                        isScrolling = false;
-
-                        self.options.scrollAfter.apply(self, [root, destElement, destinationPosition]);
-                    });
+                    self.scroll(destinationPosition);
                 });
         },
-        scroll: function(scrollObject, destElement, destinationPosition){
+        scroll: function(destinationPosition){
             var self = this;
 
-            scrollObject.animate({
+            this.root.animate({
                 scrollTop: destinationPosition
             }, this.options.speed, this.options.easing, function(){
                 isScrolling = false;
-                self.options.scrollAfter.apply(self, [scrollObject, destElement, destinationPosition]);
+                self.options.scrollAfter.apply(self, [self.root, self.dest, destinationPosition]);
             });
         },
         destroy: function(){
@@ -111,7 +101,7 @@
         }
     });
 
-    $.fn.smoothScroll = function(options){
+    $.fn.kdSmoothScroll = function(options){
         return this.each(function(){
             var ss = new SmoothScroll(this, options);
 
