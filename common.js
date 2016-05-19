@@ -219,7 +219,7 @@ var uniqueIDs = {};
         offsetOfElement: function(context){
             var left = 0,
                 top = 0,
-                anchor = this[0];
+                anchor = this[0], hasPosition = false;
 
             if(context === undefined){
                 context = $('html');
@@ -227,7 +227,11 @@ var uniqueIDs = {};
                 context = $(context);
             }
 
-            context.css('position', 'relative');
+            hasPosition = context.css('position') !== 'static';
+
+            if(!hasPosition){
+                context.css('position', 'relative');
+            }
 
             while($(anchor).is(context) === false && anchor.offsetParent){
                 top += anchor.offsetTop;
@@ -236,7 +240,9 @@ var uniqueIDs = {};
                 anchor = anchor.offsetParent;
             }
 
-            context.removeStyleCss('position');
+            if(!hasPosition){
+                context.removeStyleCss('position');
+            }
 
             return {
                 left: left,
