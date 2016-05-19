@@ -1,0 +1,399 @@
+/*********************************\
+|              Reset              |
+\*********************************/
+    /**
+    ** Reset Box Model **/
+        *, *:before, *:after {
+            -webkit-box-sizing: border-box;
+               -moz-box-sizing: border-box;
+                -ms-box-sizing: border-box;
+                 -o-box-sizing: border-box;
+                    box-sizing: border-box;
+
+            /**
+            ** Adjust webkit tap highlight **/
+            -webkit-tap-highlight-color: transparent;
+        }
+    /**
+    ** Remove all :focus outline **/
+        :focus, :active {
+            outline: none;
+        }
+    /**
+    ** Adjust Text selection style **/
+        ::-moz-selection {
+            background: #008CBA;
+            color: #ffffff;
+            text-shadow: none;
+        }
+        ::selection {
+            background: #008CBA;
+            color: #ffffff;
+            text-shadow: none;
+        }
+        ::selection:window-inactive {
+            background: #008CBA;
+        }
+    /**
+    ** Adjust Image selection style **/
+        img::selection {
+            background: none;
+        }
+        img::-moz-selection {
+            background: none;
+        }
+    /**
+    ** adjust html5 element display model **/
+        article, aside, details, figcaption, figure,
+        footer, header, hgroup, main, nav, section, summary {
+            display: block;
+        }
+    /**
+    ** adjust font family **/
+        html, body,
+        button, input, select, textarea,
+        pre, code, kbd, samp {
+            font-family: "Arial", "\5FAE\8F6F\96C5\9ED1", "Microsoft Yahei", "Hiragino Sans GB", "\5B8B\4F53", "sans-serif";
+        }
+    /**
+    ** adjust document root element html and body style **/
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
+        html {
+            -webkit-text-size-adjust: 100%;
+                -ms-text-size-adjust: 100%;
+
+            font-size: 100%;
+        }
+        body {
+            font-size: 1em;
+            line-height: 1;
+            color: #121212;
+        }
+    /**
+    ** Remove Default Margin **/
+        body, article, aside, div, footer, header, hgroup, main, nav, section,
+        h1, h2, h3, h4, h5, h6,
+        p, pre, blockquote, address, details, summary, dialog,
+        figure, figcaption,
+        ul, ol, dl,
+        li ul, li ol,
+        form, fieldset,
+        button, input, select, textarea {
+            margin: 0;
+        }
+
+/*********************************\
+|            Prototype            |
+\*********************************/
+    /**
+    ** Headings **/
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: bold;
+        }
+        h1 {
+            font-size: 2.625rem; /* 42/16 */
+        }
+        h2 {
+            font-size: 2rem; /* 32/16 */
+        }
+        h3 {
+            font-size: 1.5rem; /* 24/16 */
+        }
+        h4 {
+            font-size: 1.25rem; /* 20/16 */
+        }
+        h5 {
+            font-size: 1.125rem; /* 18/16 */
+        }
+        h6 {
+            font-size: 1rem; /* 16/16 */
+        }
+    /**
+    ** Paragraph **/
+        p, pre, blockquote, address, details, summary, dialog {}
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        blockquote {}
+        blockquote:before, blockquote:after {
+            font-weight: bold;
+        }
+        blockquote:before {
+            content: '" ';
+        }
+        blockquote:after {
+            content: ' "';
+        }
+        address {
+            font-weight: normal;
+            font-style: normal;
+        }
+        details {}
+        details > summary {
+            cursor: default;
+        }
+        details[open] > summary {
+            font-weight: bold;
+        }
+        dialog {}
+    /**
+    ** Emphasizes **/
+        abbr[title], time[title] {
+            border-bottom: 1px dotted #dcdcdc;
+            cursor: help;
+        }
+        b, strong {
+            font-weight: bold;
+        }
+        bdi {}
+        bdo {}
+        cite, dfn, em, i {
+            font-style: italic;
+        }
+        code, kbd {
+            background: #f5f5f5;
+            border: 1px solid #dcdcdc;
+            padding: 1px 5px;
+        }
+        code {
+            margin: 0 2px;
+        }
+        kbd {
+            color: #575757;
+        }
+        del {
+            text-decoration: line-through;
+        }
+        ins {
+            text-decoration: underline;
+        }
+        mark {
+            background: #ffee55;
+            padding: 1px 2px;
+        }
+        q {}
+        q:before {
+            content: '" ';
+        }
+        q:after {
+            content: ' "';
+        }
+        rp {}
+        rt {}
+        ruby {}
+        samp {
+            font-family: "Georgia";
+        }
+        small {
+            font-size: 0.75em; /* 12/16 */
+        }
+        sub, sup {
+            vertical-align: baseline;
+
+            font-size: 0.75em; /* 12/16 */
+            line-height: 0;
+            position: relative;
+        }
+        sub {
+            top: 0.25em; /* 3/12 */
+        }
+        sup {
+            top: 0.25em; /* 3/12 */
+        }
+        var {
+            font-weight: normal;
+            font-style: normal;
+        }
+    /**
+    ** Links **/
+        a {
+            text-decoration: none;
+
+            color: #121212;
+            cursor: pointer;
+        }
+        a[href^="mailto"] {
+            color: #0099ff;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        a:focus {}
+        a:active {}
+        a:visited {}
+    /**
+    ** Medias **/
+        figure {}
+        figcaption {}
+        img {
+            vertical-align: baseline;
+
+            max-width: 100%;
+            height: auto;
+            border: none;
+        }
+        map {}
+        area {
+            outline: none;
+        }
+        iframe {
+            /*border: none;
+            border: 1px solid #dcdcdc;
+            width: 300px;
+            max-width: 100%;*/
+        }
+        embed {}
+        audio, canvas, video {
+            display: inline-block;
+            /* *display: inline; */
+            /* *zoom: 1; */
+            vertical-align: baseline;
+        }
+        audio:not([controls]) {
+            display: none;
+            height: 0;
+        }
+        svg:not(:root) {
+            overflow: hidden;
+        }
+        [hidden], template {
+            display: none;
+        }
+    /**
+    ** Lists **/
+        ul, ol {
+            padding: 0 0 0 40px;
+        }
+        dl > dt {
+            font-weight: bold;
+        }
+        dl > dd {
+            margin-left: 0;
+        }
+        nav > ul,
+        nav > ol {
+            list-style: none;
+            padding-left: 0;
+        }
+    /**
+    ** Tables **/
+        table {
+            max-width: 100%;
+            width: 100%;
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+        caption {
+            padding: 0 0 1em;
+            font-weight: bold;
+            text-align: left;
+        }
+        th, td {
+            margin: 0;
+            padding: 5px;
+            text-align: left;
+
+            vertical-align: top;
+        }
+        th[valign="middle"], td[valign="middle"] {
+            vertical-align: middle;
+        }
+        th[valign="bottom"], td[valign="bottom"] {
+            vertical-align: bottom;
+        }
+
+        table {
+            border: 1px solid #dcdcdc;
+        }
+        tr > th, tr > td {
+            border-left: 1px solid #dcdcdc;
+            border-top: 1px solid #dcdcdc;
+        }
+        tr > th:first-child, tr > td:first-child {
+            border-left-width: 0;
+        }
+        table > caption + thead > tr:first-child > th,
+        table > caption + thead > tr:first-child > td,
+        table > caption + tbody > tr:first-child > th,
+        table > caption + tbody > tr:first-child > td,
+        table > caption + tfoot > tr:first-child > th,
+        table > caption + tfoot > tr:first-child > td,
+        table > thead:first-child > tr:first-child > th,
+        table > thead:first-child > tr:first-child > td,
+        table > tbody:first-child > tr:first-child > th,
+        table > tbody:first-child > tr:first-child > td,
+        table > tfoot:first-child > tr:first-child > th,
+        table > tfoot:first-child > tr:first-child > td {
+            border-top-width: 0;
+        }
+    /**
+    ** Forms **/
+        form {}
+        fieldset {
+            border: 0;
+            padding: 0;
+        }
+        legend {
+            display: block;
+            width: 100%;
+            border: none;
+            white-space: normal;
+            font-weight: bold;
+            font-size: 1rem; /* 16/16 */
+            margin: 0 0 1em;
+            padding: 0;
+        }
+        label {
+            display: inline-block;
+            /* *display: inline; */
+            /* *zoom: 1; */
+            vertical-align: top;
+        }
+        button, input, select, textarea {
+            font-size: 100%;
+            width: 100%;
+        }
+        input[type="color"] {
+            width: 30px;
+        }
+        textarea {
+            resize: none;
+        }
+    /**
+    ** FormsTextInputPlaceholder **/
+        textarea::-webkit-input-placeholder,
+           input::-webkit-input-placeholder {
+            color: #999999;
+            opacity: 1;
+        }
+        textarea:-moz-placeholder,
+           input:-moz-placeholder {
+            color: #999999;
+            opacity: 1;
+        }
+        textarea:-ms-input-placeholder,
+           input:-ms-input-placeholder {
+            color: #999999;
+            opacity: 1;
+        }
+    /**
+    ** Misc **/
+        hr {
+            -webkit-box-sizing: content-box;
+               -moz-box-sizing: content-box;
+                -ms-box-sizing: content-box;
+                 -o-box-sizing: content-box;
+                    box-sizing: content-box;
+
+            height: 0;
+            border: none;
+            border-top: 1px solid #dcdcdc;
+            margin: 20px 0;
+        }
+        br {}
+        wbr {}
+
